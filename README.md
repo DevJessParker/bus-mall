@@ -8,3 +8,11 @@ Building the foundation of an app that will provide market research by allowing 
 Author: Jessica Parker
 
 Coded one JS version heavily referencing the demo code, and then another JS2 version independently. One version was coded as if the randomizer began upon page load, and the other version took account for the hard-coded images already listed within the HTML scaffold.
+
+LAB - Number 12
+Adding Charts to Bus Mall
+Add a chart to the Bus Mall page that tracks times show and number of votes per product.
+
+Author: Jessica Parker
+
+Completed the lab myself, but debugged in cohort with Kyle Cohen, Tray Chea, and Jesse Dills. 
