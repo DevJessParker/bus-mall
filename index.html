@@ -14,45 +14,27 @@
     <h2>Product Voting</h2>
     <div>
       <ul id="productVotes">
-        <li>bag: 0</li>
-        <li>banana: 0</li>
-        <li>bathroom: 0</li>
-        <li>boots: 0</li>
-        <li>breakfast: 0</li>
-        <li>bubblegum: 0</li>
-        <li>cthulhu: 0</li>
-        <li>dog-duck: 0</li>
-        <li>dragon: 0</li>
-        <li>pen: 0</li>
-        <li>pet-sweep: 0</li>
-        <li>scissors: 0</li>
-        <li>shark: 0</li>
-        <li>sweep: 0</li>
-        <li>tauntaun: 0</li>
-        <li>unicorn: 0</li>
-        <li>water-can: 0</li>
-        <li>wine-glass: 0</li>
       </ul>
     </div>
     <section id="product_display">
       <article>
-        <img id="leftproduct_img" class="img" src="./images/bag.jpg" alt="Robot Bag">
-        <h3 id="leftproduct_h2">Robot Bag</h3>
-        <!-- <p id="leftproduct_p">Carry your valuables far, far away with this robot luggage bag.</p> -->
+        <img id="leftproduct_img" class="left" src="" alt="">
+        <h2 id="leftproduct_h2" class="left"></h2>
       </article>
       <article>
-        <img id="centerproduct_img" class="img" src="./images/banana.jpg" alt="Banana Slicer">
-        <h3 id="centerproduct_h2">Banana Slicer</h3>
-        <!-- <p id="centerproduct_p">Knife or banana? How about a slicer?</p> -->
+        <img id="centerproduct_img" class="center" src="" alt="">
+        <h2 id="centerproduct_h2" class="center"></h2>
       </article>
       <article>
-        <img id="rightproduct_img" class="img" src="./images/bathroom.jpg" alt="Toilet Tablet">
-        <h3 id="rightproduct_h2">Toilet Tablet</h3>
-        <!-- <p id="rightproduct_p">Need to shop on the go while you go?</p> -->
+        <img id="rightproduct_img" class="right" src="" alt="">
+        <h2 id="rightproduct_h2" class="right"></h2>
       </article>
     </section>
+    <div id="chartDiv">
+      <canvas id="productChart" width="400" height="400"></canvas>
+    </div>
   </main>
-  <!-- <script src='./app.js'></script> -->
-  <script src='./app2.js'></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@3.3.2/dist/chart.min.js"></script>
+  <script src='./app.js'></script>
 </body>
 </html>
