@@ -20,18 +20,18 @@ let leftProduct = null;
 let centerProduct = null;
 let rightProduct = null;
 
-function Product(product, image) {
-  this.product = product;
-  this.votes = 0;
+function Product(name, image, votes, timesShown) {
+  this.name = name;
+  this.votes = votes;
   this.image = image;
-  this.timesShown = 0;
+  this.timesShown = timesShown;
   Product.allProducts.push(this);
 }
 
 Product.prototype.renderOneProduct = function(h2Position, imgPosition) {
   imgPosition.src = this.image;
-  imgPosition.alt = `${this.product}`;
-  h2Position.textContent = this.product;
+  imgPosition.alt = `${this.name}`;
+  h2Position.textContent = this.name;
   this.timesShown++
 }
 
@@ -61,9 +61,9 @@ function renderThreeProducts() {
 function renderVoteResult() {
   productVotes.innerHTML="";
 
-  for (let product of Product.allProducts) {
+  for (let tally of Product.allProducts) {
     let liElem = document.createElement('li');
-    liElem.textContent = `${product.product}: ${product.votes}`;
+    liElem.textContent = `${tally.name}: ${tally.votes}`;
     productVotes.appendChild(liElem);
   }
 }
@@ -75,7 +75,7 @@ function renderProductChart() {
   const productTimesShown = [];
 
   for (let product of Product.allProducts) {
-    productProductArray.push(product.product);
+    productProductArray.push(product.name);
     productVotesArray.push(product.votes);
     productTimesShown.push(product.timesShown);
   }
@@ -136,35 +136,58 @@ function handleClick(event) {
   }  else {
     alert('Please click on an image to vote.');
   }
-  if (totalVotes === 25) {
+  if (totalVotes === 10) {
+    storeExistingProducts();
     renderVoteResult();
     renderProductChart();
     displayProductsElem.removeEventListener('click', handleClick);
   }
 }
 
+function storeExistingProducts() {
+  let stringifiedProduct = JSON.stringify(Product.allProducts);
+  localStorage.setItem('products', stringifiedProduct);
+}
 
-displayProductsElem.addEventListener('click', handleClick);
+function getExistingProducts() {
+  let existingProduct = localStorage.getItem('products'); 
+  if (existingProduct) {
+    let parsedProduct = JSON.parse(existingProduct);
+    for (let product of parsedProduct) {
+        let name = product.name;
+        let image = product.image;
+        let votes = product.votes;
+        let timesShown = product.timesShown;
+        new Product(name, image, votes, timesShown);
+      }
+    }
+  }
+  
+  displayProductsElem.addEventListener('click', handleClick);
+  
+  getExistingProducts();
 
+if (Product.allProducts.length < 1) {
+  new Product('Robot Bag', './images/bag.jpg', 0, 0);
+  new Product('Banana Slicer', './images/banana.jpg', 0, 0);
+  new Product('Toilet Tablet', './images/bathroom.jpg', 0, 0);
+  new Product('Rainboot Sandals', './images/boots.jpg', 0, 0);
+  new Product('Toaster Roaster Station', './images/breakfast.jpg', 0, 0);
+  new Product('Meatball Bubblegum', './images/bubblegum.jpg', 0, 0);
+  new Product('Cthulhu', './images/cthulhu.jpg', 0, 0);
+  new Product('Duck Lips', './images/dog-duck.jpg', 0, 0);
+  new Product('Dragon Meat', './images/dragon.jpg', 0, 0);
+  new Product('Corporate Picnic', './images/pen.jpg', 0, 0);
+  new Product('Pet Sweep', './images/pet-sweep.jpg', 0, 0);
+  new Product('Scissor Slicer', './images/scissors.jpg', 0, 0);
+  new Product('Snuggle Shark', './images/shark.jpg', 0, 0);
+  new Product('Baby Duster', './images/sweep.png', 0, 0);
+  new Product('Tauntaun Sleeper', './images/tauntaun.jpg', 0, 0);
+  new Product('Sparkle Spam', './images/unicorn.jpg', 0, 0);
+  new Product('Self-Watering Water Can', './images/water-can.jpg', 0, 0);
+  new Product('Terrari-Yum', './images/wine-glass.jpg', 0, 0);
+}
 
-new Product('Robot Bag', './images/bag.jpg');
-new Product('Banana Slicer', './images/banana.jpg');
-new Product('Toilet Tablet', './images/bathroom.jpg');
-new Product('Rainboot Sandals', './images/boots.jpg');
-new Product('Toaster Roaster Station', './images/breakfast.jpg');
-new Product('Meatball Bubblegum', './images/bubblegum.jpg');
-new Product('Cthulhu', './images/cthulhu.jpg');
-new Product('Duck Lips', './images/dog-duck.jpg');
-new Product('Dragon Meat', './images/dragon.jpg');
-new Product('Corporate Picnic', './images/pen.jpg');
-new Product('Pet Sweep', './images/pet-sweep.jpg');
-new Product('Scissor Slicer', './images/scissors.jpg');
-new Product('Snuggle Shark', './images/shark.jpg');
-new Product('Baby Duster', './images/sweep.png');
-new Product('Tauntaun Sleeper', './images/tauntaun.jpg');
-new Product('Sparkle Spam', './images/unicorn.jpg');
-new Product('Self-Watering Water Can', './images/water-can.jpg');
-new Product('Terrari-Yum', './images/wine-glass.jpg');
 
 renderThreeProducts();
 
