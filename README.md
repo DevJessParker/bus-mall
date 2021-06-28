@@ -1,6 +1,10 @@
 # bus-mall
 Bus Mall week three labs
 
+Project Overview:
+Client requested market research based on voting feedback rounds. Coded an application to track user input, utilize local storage, and render results of the voting in a graph format.
+
+
 LAB - Number 11
 Getting Started on Bus Mall
 Building the foundation of an app that will provide market research by allowing users to vote for products they are most likely to buy.

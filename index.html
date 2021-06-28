@@ -4,18 +4,18 @@
     <title>Bus Mall</title>
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+CSS rules to specify families
   </head>
   <body></body>
   <header>
     <h1>Market Research for Bus Mall &reg;</h1>
-    <p>To help cater Bus Mall magazine products to target customers, please click the item you are most likely to purchase. You will be shown three choices in each voting round.</p>
+    <p>To help cater Bus Mall magazine products to target customers, please click the item you are most likely to purchase. <br> You will be shown three choices in each voting round. Results will be shown below.</p>
   </header>
   <main>
     <h2>Product Voting</h2>
-    <div>
-      <ul id="productVotes">
-      </ul>
-    </div>
     <section id="product_display">
       <article>
         <img id="leftproduct_img" class="left" src="" alt="">
@@ -30,8 +30,13 @@
         <h2 id="rightproduct_h2" class="right"></h2>
       </article>
     </section>
-    <div id="chartDiv">
-      <canvas id="productChart" width="400" height="400"></canvas>
+    <h2 id="results">Vote Results</h2>
+    <div id="tally">
+      <ul id="productVotes">
+      </ul>
+      <div id="chartDiv">
+        <canvas id="productChart" width="400" height="400"></canvas>
+      </div>
     </div>
   </main>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@3.3.2/dist/chart.min.js"></script>
