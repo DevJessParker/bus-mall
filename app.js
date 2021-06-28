@@ -136,7 +136,7 @@ function handleClick(event) {
   }  else {
     alert('Please click on an image to vote.');
   }
-  if (totalVotes === 10) {
+  if (totalVotes === 25) {
     storeExistingProducts();
     renderVoteResult();
     renderProductChart();
